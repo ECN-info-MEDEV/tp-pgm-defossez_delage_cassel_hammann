@@ -35,7 +35,7 @@ public class ChargementImage {
        im.loadEchelle(fichier.readLine());
        ligne = fichier.readLine();
        while (ligne != null) {
-           im.addPixel(x, y, val);
+           im.loadPixel(x, y, val);
            ligne = fichier.readLine();
        }
        fichier.close();

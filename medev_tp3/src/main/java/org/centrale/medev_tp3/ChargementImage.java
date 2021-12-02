@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -18,7 +19,8 @@ public class ChargementImage {
     //attribut
     public String source;
     public BufferedReader fichier;
-
+    public static final String delimiteurs = "  ";
+    StringTokenizer tokenizer;
 
     //constructeur
     public ChargementImage(String nom) throws FileNotFoundException{
@@ -34,12 +36,24 @@ public class ChargementImage {
        im.loadSize(fichier.readLine());
        im.loadEchelle(fichier.readLine());
        ligne = fichier.readLine();
+       int x = 0;
+       int y = 0;
+       String mot;
        while (ligne != null) {
-           im.loadPixel(x, y, val);
+           tokenizer = new StringTokenizer(ligne,ChargementImage.delimiteurs);
+           while(tokenizer.hasMoreTokens()) {
+                mot = tokenizer.nextToken();
+                if (x == im.getLargeur()) {
+                x = 0;
+                y = y + 1;
+                }
+            im.setPixel(x, y, Integer.parseInt(mot));
+            x = x + 1; 
+            }
            ligne = fichier.readLine();
        }
        fichier.close();
-       return i;
+       return im;
     }
    
    

@@ -48,6 +48,11 @@ public class Image {
         this.pixels = pixels;
     }
     
+    public void loadechelle(String chaine){
+        int ech = Integer.parseInt(chaine);
+        this.echelle = ech;
+    }
+    
     
     
     

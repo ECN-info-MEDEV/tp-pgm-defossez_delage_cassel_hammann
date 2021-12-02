@@ -5,6 +5,7 @@
  */
 package org.centrale.medev_tp3;
 
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -29,6 +30,25 @@ public class Image {
      */
     private int[][] pixels;
     
+    /**
+     * Constructeur par défaut 
+     */
+    public Image() {
+    }
+    
+    /**
+     * Constructeur d'image noire
+     * @param largeur Largeur
+     * @param hauteur Hauteur
+     * @param echelle Valeur max
+     */
+    public Image(int largeur, int hauteur, int echelle) {
+        this.largeur = largeur;
+        this.hauteur = hauteur;
+        this.echelle = echelle;
+        pixels = new int[largeur][hauteur];
+        Arrays.fill(pixels, 0);
+    }
 
     public int getLargeur() {
         return largeur;
@@ -73,6 +93,7 @@ public class Image {
         String sHauteur = tokenizer.nextToken();
         hauteur = Integer.parseInt(sHauteur);
         pixels = new int[largeur][hauteur];
+        Arrays.fill(pixels, 0);
     }
     
     /**
@@ -104,4 +125,67 @@ public class Image {
         pixels[x][y] = val;
     }
     
+    /**
+     * Dupliquer une image
+     * @return Une nouvelle image
+     */
+    public Image duplicate() {
+        Image im = new Image();
+        im.setLargeur(largeur);
+        im.setHauteur(hauteur);
+        im.setEchelle(echelle);
+        im.setPixels(pixels);
+        return im;
+    }
+    
+    /**
+     * Appliquer un seuil sur la photo :
+     * si en dessous du seuil, définir à noir, sinon à blanc
+     * @param seuil La valeur du seuil
+     */
+    public void seuillage(int seuil) {
+        for (int x=0; x < largeur; x++) {
+            for (int y=0; y < hauteur; y++) {
+                if (pixels[x][y] < seuil) {
+                    pixels[x][y] = 0;
+                } else {
+                    pixels[x][y] = echelle;
+                }
+            }
+        }
+    }
+    
+    /**
+     * Vérifie si deux images sont du même format
+     * @param im Une image à comparer
+     * @return Vrai si même format
+     */
+    public boolean memeFormat(Image im) {
+        return largeur == im.getLargeur() && 
+                hauteur == im.getHauteur() &&
+                echelle == im.getEchelle();
+    }
+    
+    /**
+     * Calcule l'image des différenes entre deux images
+     * @param im Une autre image à comparer
+     * @return Une nouvelle image
+     */
+    public Image difference(Image im) throws Exception {
+        if (!this.memeFormat(im)) {
+            throw new Exception("Format différent !");
+        } else {
+            Image res = new Image(largeur, hauteur, echelle);
+            for (int x=0; x<largeur; x++) {
+                for (int y=0; y<hauteur; y++) {
+                    if (pixels[x][y] == im.getPixel(x, y)) {
+                        res.setPixel(x, y, 0);
+                    } else {
+                        res.setPixel(x, y, echelle);
+                    }
+                }
+            }
+            return res;
+        }
+    }
 }

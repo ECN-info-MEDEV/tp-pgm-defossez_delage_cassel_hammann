@@ -18,7 +18,6 @@ public class Medev {
         ChargementImage chargement = new ChargementImage("C:\\Users\\flora\\Desktop\\tp-pgm-defossez_delage_cassel_hammann\\Images Test PGM\\baboon.pgm");
         Image im;
         im = chargement.chargerImage();
-        System.out.println(im.getPixel(4,0));
         
     }
     

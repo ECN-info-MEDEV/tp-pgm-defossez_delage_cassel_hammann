@@ -84,5 +84,24 @@ public class Image {
         this.echelle = ech;
     }
     
+    /**
+     * Rechercher la valeur d'un pixel
+     * @param x Abscisse
+     * @param y Ordonnée
+     * @return Valeur du pixel
+     */
+    public int getPixel(int x, int y) {
+        return pixels[x][y];
+    }
+    
+    /**
+     * Attribuer une valeur à un pixel
+     * @param x Abscisse
+     * @param y Ordonnée
+     * @param val Valeur à définir
+     */
+    public void setPixel(int x, int y, int val) {
+        pixels[x][y] = val;
+    }
     
 }

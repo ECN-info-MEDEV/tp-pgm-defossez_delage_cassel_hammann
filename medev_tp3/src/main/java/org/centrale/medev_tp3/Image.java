@@ -170,6 +170,7 @@ public class Image {
      * Calcule l'image des différenes entre deux images
      * @param im Une autre image à comparer
      * @return Une nouvelle image
+     * @throws java.lang.Exception Renvoie une erreur si formats différents
      */
     public Image difference(Image im) throws Exception {
         if (!this.memeFormat(im)) {
@@ -187,5 +188,22 @@ public class Image {
             }
             return res;
         }
+    }
+    
+    /**
+     * Modifier la taille de l'image
+     * @param nLargeur Nouvelle largeur
+     * @param nHauteur Nouvelle hauteur
+     */
+    public void changerTaille(int nLargeur, int nHauteur) {
+        int[][] nPixels = new int[nLargeur][nHauteur];
+        for (int x=0; x<nLargeur; x++) {
+            for (int y=0; y<nHauteur; y++) {
+                nPixels[x][y] = this.pixels[(int) x*nLargeur/largeur][(int) y*nHauteur/hauteur];
+            }
+        }
+        pixels = nPixels;
+        hauteur = nHauteur;
+        largeur = nLargeur;
     }
 }

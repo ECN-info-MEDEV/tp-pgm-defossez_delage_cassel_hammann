@@ -52,9 +52,11 @@ public class Image {
     
     public void loadSize(String ligne) {
         StringTokenizer tokenizer = new StringTokenizer(ligne, " ");
-        String 
+        String sLargeur = tokenizer.nextToken();
+        largeur = Integer.parseInt(sLargeur);
+        String sHauteur = tokenizer.nextToken();
+        hauteur = Integer.parseInt(sHauteur);
+        pixels = new int[largeur][hauteur];
     }
-    
-    
     
 }

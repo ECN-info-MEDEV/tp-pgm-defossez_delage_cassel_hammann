@@ -8,13 +8,25 @@ package org.centrale.medev_tp3;
 import java.util.StringTokenizer;
 
 /**
- *
+ * Classe représentant une image
  * @author floran
  */
 public class Image {
+    /**
+     * Largeur d'une image
+     */
     private int largeur;
+    /**
+     * Hauteur d'une image
+     */
     private int hauteur;
+    /**
+     * Valeur maximale d'un pixel de l'image
+     */
     private int echelle;
+    /**
+     * Tableau des valeurs des pixels
+     */
     private int[][] pixels;
     
 
@@ -50,12 +62,10 @@ public class Image {
         this.pixels = pixels;
     }
     
-    public void loadechelle(String chaine){
-        int ech = Integer.parseInt(chaine);
-        this.echelle = ech;
-    }
-    
-    
+    /**
+     * Charger la valeur de largeur et hauteur à partir d'une ligne de texte
+     * @param ligne un string avec les deux valeurs de hauteur et largeur
+     */
     public void loadSize(String ligne) {
         StringTokenizer tokenizer = new StringTokenizer(ligne, " ");
         String sLargeur = tokenizer.nextToken();
@@ -64,5 +74,15 @@ public class Image {
         hauteur = Integer.parseInt(sHauteur);
         pixels = new int[largeur][hauteur];
     }
+    
+    /**
+     * Charger la valeur de Echelle à partir d'une ligne de texte
+     * @param chaine un string avec la valeur max
+     */
+    public void loadEchelle(String chaine){
+        int ech = Integer.parseInt(chaine);
+        this.echelle = ech;
+    }
+    
     
 }

@@ -28,10 +28,15 @@ public class ChargementImage {
     
     public Image chargerImage() throws IOException {
        String ligne;
-       Image i = new Image();
-       ligne = this.fichier.readLine();
-       while(ligne !=null){
-           //a faire
+       Image im = new Image();
+       fichier.readLine();
+       fichier.readLine();
+       im.loadSize(fichier.readLine());
+       im.loadEchelle(fichier.readLine());
+       ligne = fichier.readLine();
+       while (ligne != null) {
+           im.addPixel(x, y, val);
+           ligne = fichier.readLine();
        }
        fichier.close();
        return i;

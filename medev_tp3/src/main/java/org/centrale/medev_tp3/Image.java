@@ -50,6 +50,12 @@ public class Image {
         this.pixels = pixels;
     }
     
+    public void loadechelle(String chaine){
+        int ech = Integer.parseInt(chaine);
+        this.echelle = ech;
+    }
+    
+    
     public void loadSize(String ligne) {
         StringTokenizer tokenizer = new StringTokenizer(ligne, " ");
         String sLargeur = tokenizer.nextToken();

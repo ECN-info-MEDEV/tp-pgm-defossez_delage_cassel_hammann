@@ -5,20 +5,18 @@
  */
 package org.centrale.medev_tp3;
 
+import java.util.StringTokenizer;
+
 /**
  *
  * @author floran
  */
 public class Image {
-    private int longueur;
     private int largeur;
+    private int hauteur;
     private int echelle;
     private int[][] pixels;
     
-
-    public int getLongueur() {
-        return longueur;
-    }
 
     public int getLargeur() {
         return largeur;
@@ -32,8 +30,12 @@ public class Image {
         return pixels;
     }
 
-    public void setLongueur(int longueur) {
-        this.longueur = longueur;
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+
+    public int getHauteur() {
+        return hauteur;
     }
 
     public void setLargeur(int largeur) {
@@ -54,6 +56,10 @@ public class Image {
     }
     
     
+    public void loadSize(String ligne) {
+        StringTokenizer tokenizer = new StringTokenizer(ligne, " ");
+        String 
+    }
     
     
     

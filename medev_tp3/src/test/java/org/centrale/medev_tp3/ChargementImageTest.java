@@ -10,6 +10,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -31,6 +32,7 @@ public class ChargementImageTest {
     /**
      * Test of chargerImage method, of class ChargementImage.
      */
+    @Ignore
     @Test
     public void testChargerImage() throws Exception {
         System.out.println("chargerImage");

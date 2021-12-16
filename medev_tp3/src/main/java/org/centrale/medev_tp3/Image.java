@@ -47,7 +47,7 @@ public class Image {
         this.hauteur = hauteur;
         this.echelle = echelle;
         pixels = new int[largeur][hauteur];
-        Arrays.fill(pixels, 0);
+        for (int i=0; i < largeur; i++) Arrays.fill(pixels[i], 0);
     }
 
     public int getLargeur() {

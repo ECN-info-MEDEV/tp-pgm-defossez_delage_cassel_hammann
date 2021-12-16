@@ -16,25 +16,27 @@ import java.io.IOException;
  * @author floran
  */
 public class EcritureImage {
-    public BufferedWriter bufferedWriter;
-    public String filename;
+    private BufferedWriter fichier;
+    private final String filename;
+    private static final String DELIMITEUR = "  ";
     
     public EcritureImage(String filename) {
         this.filename = filename;
     }
     
     public void ecrireImage(Image im) throws IOException {
-        bufferedWriter = new BufferedWriter(new FileWriter(filename));
-        bufferedWriter.write("P2");
-        bufferedWriter.newLine();
-        bufferedWriter.write("#");
-        bufferedWriter.newLine();
-        bufferedWriter.write( im.getLargeur() + " " + im.getHauteur());
-        bufferedWriter.newLine();
-        bufferedWriter.write("255");
+        fichier = new BufferedWriter(new FileWriter(filename));
+        fichier.write("P2");
+        fichier.newLine();
+        fichier.write("#");
+        fichier.newLine();
+        fichier.write(im.getLargeur() + "  " + im.getHauteur());
+        fichier.newLine();
+        fichier.write(im.getEchelle());
         for (int i = 0; i < 10; i++) {
             
         }
+        fichier.close();
     }
     
 }

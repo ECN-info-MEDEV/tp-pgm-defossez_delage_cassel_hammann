@@ -17,9 +17,9 @@ import java.util.StringTokenizer;
  */
 public class ChargementImage {
     //attribut
-    public String source;
-    public BufferedReader fichier;
-    public static final String delimiteurs = "  ";
+    private final String source;
+    private final BufferedReader fichier;
+    private static final String DELIMITEUR = "  ";
     StringTokenizer tokenizer;
 
     //constructeur
@@ -40,7 +40,7 @@ public class ChargementImage {
        int y = 0;
        String mot;
        while (ligne != null) {
-           tokenizer = new StringTokenizer(ligne,ChargementImage.delimiteurs);
+           tokenizer = new StringTokenizer(ligne, DELIMITEUR);
            while(tokenizer.hasMoreTokens()) {
                 mot = tokenizer.nextToken();
                 if (x == im.getLargeur()) {

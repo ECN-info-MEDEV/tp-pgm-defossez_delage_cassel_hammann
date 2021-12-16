@@ -17,6 +17,7 @@ public class Medev {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         ChargementImage chargement = new ChargementImage("../baboon.pgm");
         Image im = chargement.chargerImage();
+        im.save("../baboon2.pgm");
     }
     
 }

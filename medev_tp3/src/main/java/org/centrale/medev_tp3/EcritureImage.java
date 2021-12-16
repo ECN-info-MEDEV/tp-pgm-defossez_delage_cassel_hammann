@@ -42,14 +42,18 @@ public class EcritureImage {
         fichier.newLine();
         fichier.write(im.getLargeur() + "  " + im.getHauteur());
         fichier.newLine();
-        fichier.write(im.getEchelle());
-        for (int x=0; x < im.getLargeur(); x++) {
+        fichier.write(Integer.toString(im.getEchelle()));
+        fichier.newLine();
+        for (int y=0; y < im.getHauteur(); y++) {
             int longueurLigne = 0;
-            for (int y=0; y < im.getHauteur(); y++) {
+            for (int x=0; x < im.getLargeur(); x++) {
                 int val = im.getPixel(x, y);
                 String chaine = val + DELIMITEUR;
                 longueurLigne += chaine.length();
-                if (longueurLigne > LONGUEUR_MAX) fichier.newLine();
+                if (longueurLigne > LONGUEUR_MAX) {
+                    longueurLigne = 0;
+                    fichier.newLine();
+                }
                 fichier.write(chaine);
             }
             fichier.newLine();

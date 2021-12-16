@@ -44,11 +44,11 @@ public class ChargementImage {
            while(tokenizer.hasMoreTokens()) {
                 mot = tokenizer.nextToken();
                 if (x == im.getLargeur()) {
-                x = 0;
-                y = y + 1;
+                    x = 0;
+                    y = y + 1;
                 }
-            im.setPixel(x, y, Integer.parseInt(mot));
-            x = x + 1; 
+                im.setPixel(x, y, Integer.parseInt(mot));
+                x = x + 1; 
             }
            ligne = fichier.readLine();
        }

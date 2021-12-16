@@ -43,10 +43,8 @@ public class ChargementImageTest {
             ++i;
         }
         expResult.setPixels(tab);
-        expResult.save("../verif.pgm");
         ChargementImage instance = new ChargementImage("../test.pgm");
         Image result = instance.chargerImage();
-        System.out.println(expResult.equals(result));
         assertTrue(expResult.equals(result));
     }
     

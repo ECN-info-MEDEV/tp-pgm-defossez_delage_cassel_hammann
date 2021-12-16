@@ -5,6 +5,7 @@
  */
 package org.centrale.medev_tp3;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -124,6 +125,15 @@ public class Image {
         this.echelle = ech;
     }
     
+    /**
+     * Sauvegarder une image
+     * @param filename Nom du fichier
+     * @throws IOException Erreur d'écriture
+     */
+    public void save(String filename) throws IOException {
+        EcritureImage e = new EcritureImage(filename);
+        e.ecrireImage(this);
+    }
     
     /**
      * Dupliquer une image
@@ -134,7 +144,7 @@ public class Image {
         im.setLargeur(largeur);
         im.setHauteur(hauteur);
         im.setEchelle(echelle);
-        im.setPixels(pixels);
+        im.setPixels(pixels.clone());
         return im;
     }
     

@@ -9,6 +9,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -30,6 +31,7 @@ public class EcritureImageTest {
     /**
      * Test of ecrireImage method, of class EcritureImage.
      */
+    @Ignore
     @Test
     public void testEcrireImage() throws Exception {
         System.out.println("ecrireImage");

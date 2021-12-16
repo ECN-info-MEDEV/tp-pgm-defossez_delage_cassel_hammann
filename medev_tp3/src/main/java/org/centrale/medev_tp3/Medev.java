@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class Medev {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        ChargementImage chargement = new ChargementImage("C:\\Users\\flora\\Desktop\\tp-pgm-defossez_delage_cassel_hammann\\Images Test PGM\\baboon.pgm");
+        ChargementImage chargement = new ChargementImage("../baboon.pgm");
         Image im;
         im = chargement.chargerImage();
         

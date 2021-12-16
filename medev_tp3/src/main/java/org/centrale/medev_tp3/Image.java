@@ -93,7 +93,7 @@ public class Image {
         String sHauteur = tokenizer.nextToken();
         hauteur = Integer.parseInt(sHauteur);
         pixels = new int[largeur][hauteur];
-        Arrays.fill(pixels, 0);
+        for (int i=0; i < largeur; i++) Arrays.fill(pixels[i], 0);
     }
     
     /**

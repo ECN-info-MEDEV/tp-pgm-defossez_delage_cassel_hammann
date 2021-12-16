@@ -220,7 +220,11 @@ public class Image {
     public boolean equals(Image im){
         boolean test = ((this.hauteur == im.getHauteur()) 
                 && (this.largeur == im.getLargeur())
-                && (this.pixels.equals(im.getPixels())));
+                && (this.echelle == im.getEchelle()));
+        if (test) {
+            int[][] tab = im.getPixels();
+            for (int i=0; i<this.largeur; ++i) test &= Arrays.equals(this.pixels[i], tab[i]);
+        }
         return test;
     }
 }

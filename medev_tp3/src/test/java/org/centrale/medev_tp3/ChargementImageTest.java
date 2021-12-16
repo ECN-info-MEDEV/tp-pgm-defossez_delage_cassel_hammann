@@ -40,13 +40,14 @@ public class ChargementImageTest {
         int i = 0;
         while (i<10) {
             tab[i][i] = 255;
-            System.out.println(tab[i][i]);
             ++i;
         }
         expResult.setPixels(tab);
+        expResult.save("../verif.pgm");
         ChargementImage instance = new ChargementImage("../test.pgm");
         Image result = instance.chargerImage();
-        assertEquals(expResult, result);
+        System.out.println(expResult.equals(result));
+        assertTrue(expResult.equals(result));
     }
     
 }

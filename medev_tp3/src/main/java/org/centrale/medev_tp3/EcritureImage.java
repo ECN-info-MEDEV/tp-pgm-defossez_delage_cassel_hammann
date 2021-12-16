@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 
 /**
- *
+ * Classe pour enregistrer une image
  * @author floran
  */
 public class EcritureImage {
@@ -21,10 +21,19 @@ public class EcritureImage {
     private static final String DELIMITEUR = "  ";
     private static final int LONGUEUR_MAX = 70;
     
+    /**
+     * Constructeur de la classe
+     * @param filename Le nom du fichier à enregistrer
+     */
     public EcritureImage(String filename) {
         this.filename = filename;
     }
     
+    /**
+     * Enregistrer l'image
+     * @param im Image à enregistrer
+     * @throws IOException Erreur d'écriture du fichier
+     */
     public void ecrireImage(Image im) throws IOException {
         fichier = new BufferedWriter(new FileWriter(filename));
         fichier.write("P2");
@@ -47,5 +56,4 @@ public class EcritureImage {
         }
         fichier.close();
     }
-    
 }

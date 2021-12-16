@@ -22,12 +22,21 @@ public class ChargementImage {
     private static final String DELIMITEUR = "  ";
     StringTokenizer tokenizer;
 
-    //constructeur
+    /**
+     * Constructeur de la classe et Lecture du fichier
+     * @param nom Nom du fichier à lire
+     * @throws FileNotFoundException Fichier non-accessible
+     */
     public ChargementImage(String nom) throws FileNotFoundException{
        this.source=nom;
        fichier = new BufferedReader(new FileReader(source));
     }
     
+    /**
+     * Créer un objet Image à partir d'un fichier
+     * @return Objet Image correspondant au fichier
+     * @throws IOException Erreur de lecture / Fichier corrompu
+     */
     public Image chargerImage() throws IOException {
        String ligne;
        Image im = new Image();

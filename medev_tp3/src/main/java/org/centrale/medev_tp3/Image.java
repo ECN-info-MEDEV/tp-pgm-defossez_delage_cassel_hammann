@@ -216,4 +216,11 @@ public class Image {
         hauteur = nHauteur;
         largeur = nLargeur;
     }
+    
+    public boolean equals(Image im){
+        boolean test = ((this.hauteur == im.getHauteur()) 
+                && (this.largeur == im.getLargeur())
+                && (this.pixels.equals(im.getPixels())));
+        return test;
+    }
 }

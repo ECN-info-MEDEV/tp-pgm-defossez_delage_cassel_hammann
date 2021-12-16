@@ -34,16 +34,17 @@ public class ChargementImageTest {
     @Test
     public void testChargerImage() throws Exception {
         System.out.println("chargerImage");
-        ChargementImage instance = new ChargementImage("../test.pgm");;
         Image expResult = new Image(10,10,255);
         int[][] tab = new int[10][10];
-        Arrays.fill(tab, 150);
+        for (int i=0; i < 10; i++) Arrays.fill(tab[i], 150);
         int i = 0;
         while (i<10) {
             tab[i][i] = 255;
+            System.out.println(tab[i][i]);
             ++i;
         }
         expResult.setPixels(tab);
+        ChargementImage instance = new ChargementImage("../test.pgm");
         Image result = instance.chargerImage();
         assertEquals(expResult, result);
     }

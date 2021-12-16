@@ -5,6 +5,7 @@
  */
 package org.centrale.medev_tp3;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -61,6 +62,16 @@ public class Image {
     public int[][] getPixels() {
         return pixels;
     }
+    
+    /**
+     * Rechercher la valeur d'un pixel
+     * @param x Abscisse
+     * @param y Ordonnée
+     * @return Valeur du pixel
+     */
+    public int getPixel(int x, int y) {
+        return pixels[x][y];
+    }
 
     public void setHauteur(int hauteur) {
         this.hauteur = hauteur;
@@ -83,6 +94,16 @@ public class Image {
     }
     
     /**
+     * Attribuer une valeur à un pixel
+     * @param x Abscisse
+     * @param y Ordonnée
+     * @param val Valeur à définir
+     */
+    public void setPixel(int x, int y, int val) {
+        pixels[x][y] = val;
+    }
+    
+    /**
      * Charger la valeur de largeur et hauteur à partir d'une ligne de texte
      * @param ligne un string avec les deux valeurs de hauteur et largeur
      */
@@ -93,7 +114,6 @@ public class Image {
         String sHauteur = tokenizer.nextToken();
         hauteur = Integer.parseInt(sHauteur);
         pixels = new int[largeur][hauteur];
-        for (int i=0; i < largeur; i++) Arrays.fill(pixels[i], 0);
     }
     
     /**
@@ -106,23 +126,13 @@ public class Image {
     }
     
     /**
-     * Rechercher la valeur d'un pixel
-     * @param x Abscisse
-     * @param y Ordonnée
-     * @return Valeur du pixel
+     * Sauvegarder une image
+     * @param filename Nom du fichier
+     * @throws IOException Erreur d'écriture
      */
-    public int getPixel(int x, int y) {
-        return pixels[x][y];
-    }
-    
-    /**
-     * Attribuer une valeur à un pixel
-     * @param x Abscisse
-     * @param y Ordonnée
-     * @param val Valeur à définir
-     */
-    public void setPixel(int x, int y, int val) {
-        pixels[x][y] = val;
+    public void save(String filename) throws IOException {
+        EcritureImage e = new EcritureImage(filename);
+        e.ecrireImage(this);
     }
     
     /**
@@ -134,7 +144,7 @@ public class Image {
         im.setLargeur(largeur);
         im.setHauteur(hauteur);
         im.setEchelle(echelle);
-        im.setPixels(pixels);
+        im.setPixels(pixels.clone());
         return im;
     }
     

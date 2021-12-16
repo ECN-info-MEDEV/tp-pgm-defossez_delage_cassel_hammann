@@ -33,12 +33,11 @@ public class ImageTest {
     @Test
     public void testGetLargeur() {
         System.out.println("getLargeur");
-        Image instance = new Image();
-        int expResult = 0;
-        int result = instance.getLargeur();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Image instance = new Image(50,50,180);
+        assertTrue(instance.getLargeur() == 50);
+        assertFalse(instance.getLargeur() < 50);
+        Image autre = new Image();
+        assertFalse(autre.getLargeur() == 50);
     }
 
     /**
@@ -47,12 +46,11 @@ public class ImageTest {
     @Test
     public void testGetEchelle() {
         System.out.println("getEchelle");
-        Image instance = new Image();
-        int expResult = 0;
-        int result = instance.getEchelle();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Image instance = new Image(50,50,180);
+        assertTrue(instance.getEchelle() == 180);
+        assertFalse(instance.getEchelle() < 180);
+        Image autre = new Image();
+        assertFalse(autre.getEchelle() == 180);
     }
 
     /**
@@ -61,26 +59,10 @@ public class ImageTest {
     @Test
     public void testGetPixels() {
         System.out.println("getPixels");
-        Image instance = new Image();
-        int[][] expResult = null;
-        int[][] result = instance.getPixels();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Image instance = new Image(50,50,180);
+        assertTrue(instance.getPixels().equals(new int[50][50]));
     }
 
-    /**
-     * Test of setHauteur method, of class Image.
-     */
-    @Test
-    public void testSetHauteur() {
-        System.out.println("setHauteur");
-        int hauteur = 0;
-        Image instance = new Image();
-        instance.setHauteur(hauteur);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of getHauteur method, of class Image.
@@ -88,39 +70,13 @@ public class ImageTest {
     @Test
     public void testGetHauteur() {
         System.out.println("getHauteur");
-        Image instance = new Image();
-        int expResult = 0;
-        int result = instance.getHauteur();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Image instance = new Image(50,50,180);
+        assertTrue(instance.getHauteur() == 50);
+        assertFalse(instance.getHauteur() < 50);
+        Image autre = new Image();
+        assertFalse(autre.getHauteur() == 50);
     }
 
-    /**
-     * Test of setLargeur method, of class Image.
-     */
-    @Test
-    public void testSetLargeur() {
-        System.out.println("setLargeur");
-        int largeur = 0;
-        Image instance = new Image();
-        instance.setLargeur(largeur);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setEchelle method, of class Image.
-     */
-    @Test
-    public void testSetEchelle() {
-        System.out.println("setEchelle");
-        int echelle = 0;
-        Image instance = new Image();
-        instance.setEchelle(echelle);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of setPixels method, of class Image.
@@ -128,11 +84,8 @@ public class ImageTest {
     @Test
     public void testSetPixels() {
         System.out.println("setPixels");
-        int[][] pixels = null;
-        Image instance = new Image();
-        instance.setPixels(pixels);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // Générating a array of pixel and changing it + testing if it is the one we expected
+
     }
 
     /**
@@ -215,8 +168,8 @@ public class ImageTest {
         int seuil = 0;
         Image instance = new Image();
         instance.seuillage(seuil);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
     }
 
     /**

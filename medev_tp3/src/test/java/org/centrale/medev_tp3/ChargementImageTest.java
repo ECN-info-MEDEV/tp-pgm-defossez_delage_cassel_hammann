@@ -5,6 +5,7 @@
  */
 package org.centrale.medev_tp3;
 
+import java.util.Arrays;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,12 +34,18 @@ public class ChargementImageTest {
     @Test
     public void testChargerImage() throws Exception {
         System.out.println("chargerImage");
-        ChargementImage instance = null;
-        Image expResult = null;
+        ChargementImage instance = new ChargementImage("../test.pgm");;
+        Image expResult = new Image(10,10,255);
+        int[][] tab = new int[10][10];
+        Arrays.fill(tab, 150);
+        int i = 0;
+        while (i<10) {
+            tab[i][i] = 255;
+            ++i;
+        }
+        expResult.setPixels(tab);
         Image result = instance.chargerImage();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

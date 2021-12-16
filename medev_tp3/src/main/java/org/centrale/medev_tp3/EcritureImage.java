@@ -12,18 +12,28 @@ import java.io.IOException;
  */
 
 /**
- *
+ * Classe pour enregistrer une image
  * @author floran
  */
 public class EcritureImage {
     private BufferedWriter fichier;
     private final String filename;
     private static final String DELIMITEUR = "  ";
+    private static final int LONGUEUR_MAX = 70;
     
+    /**
+     * Constructeur de la classe
+     * @param filename Le nom du fichier à enregistrer
+     */
     public EcritureImage(String filename) {
         this.filename = filename;
     }
     
+    /**
+     * Enregistrer l'image
+     * @param im Image à enregistrer
+     * @throws IOException Erreur d'écriture du fichier
+     */
     public void ecrireImage(Image im) throws IOException {
         fichier = new BufferedWriter(new FileWriter(filename));
         fichier.write("P2");
@@ -33,10 +43,17 @@ public class EcritureImage {
         fichier.write(im.getLargeur() + "  " + im.getHauteur());
         fichier.newLine();
         fichier.write(im.getEchelle());
-        for (int i = 0; i < 10; i++) {
-            
+        for (int x=0; x < im.getLargeur(); x++) {
+            int longueurLigne = 0;
+            for (int y=0; y < im.getHauteur(); y++) {
+                int val = im.getPixel(x, y);
+                String chaine = val + DELIMITEUR;
+                longueurLigne += chaine.length();
+                if (longueurLigne > LONGUEUR_MAX) fichier.newLine();
+                fichier.write(chaine);
+            }
+            fichier.newLine();
         }
         fichier.close();
     }
-    
 }

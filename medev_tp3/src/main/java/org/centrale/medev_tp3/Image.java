@@ -103,6 +103,7 @@ public class Image {
         pixels[x][y] = val;
     }
     
+    
     /**
      * Charger la valeur de largeur et hauteur à partir d'une ligne de texte
      * @param ligne un string avec les deux valeurs de hauteur et largeur
@@ -144,7 +145,11 @@ public class Image {
         im.setLargeur(largeur);
         im.setHauteur(hauteur);
         im.setEchelle(echelle);
-        im.setPixels(pixels.clone());
+        int[][] nPixels = new int[largeur][hauteur];
+        for (int i=0; i<largeur; i++) {
+            nPixels[i] = pixels[i].clone();
+        }
+        im.setPixels(nPixels);
         return im;
     }
     

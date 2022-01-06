@@ -5,6 +5,10 @@
  */
 package org.centrale.medev_tp3;
 
+ 
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Arrays;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -35,7 +39,8 @@ public class ChargementImageTest {
     @Ignore
     @Test
     public void testChargerImage() throws Exception {
-        System.out.println("chargerImage");
+        Logger logger = Logger.getLogger("logger");
+        logger.log(Level.INFO, "ChargerImage");
         ChargementImage instance = new ChargementImage("../test.pgm");
         Image result = instance.chargerImage();
         Image expResult = new Image(10,10,255);

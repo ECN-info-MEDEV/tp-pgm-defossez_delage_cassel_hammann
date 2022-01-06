@@ -70,14 +70,14 @@ public class ImageTest {
         Image expResult = new Image(10,10,255);
         // Deux cas
         int[][] tab = new int[10][10];
-        Arrays.fill(tab, 150);
+        for (int i=0; i < 10; i++) Arrays.fill(tab[i], 150);
         int i = 0;
         while (i<10) {
             tab[i][i] = 255;
             ++i;
         }
         int[][] tab_test = new int[10][10];
-        Arrays.fill(tab_test, 130);
+        for (int k=0; k < 10; k++) Arrays.fill(tab_test[k], 130);
         int j = 0;
         while (j<10) {
             tab[j][j] = 10;
@@ -188,7 +188,7 @@ public class ImageTest {
         Image expResult = new Image(10,10,255);
         // Deux cas
         int[][] tab = new int[10][10];
-        Arrays.fill(tab, 150);
+        for (int i=0; i < 10; i++) Arrays.fill(tab[i], 150);
         expResult.setPixels(tab);
         
         ChargementImage instance = new ChargementImage("../test.pgm");;
@@ -204,13 +204,12 @@ public class ImageTest {
      * Test of difference method, of class Image.
      */
 
-    @Test (expected=IllegalArgumentException.class)
+    @Test
     public void testDifference() throws Exception {
         System.out.println("difference");
         ChargementImage instance = new ChargementImage("../test.pgm");
         ChargementImage instance_test = new ChargementImage("../baboon.pgm");
         Image result = instance.chargerImage();
-        Image result_autre = instance.chargerImage();
         Image result_test = instance_test.chargerImage();
         
     }

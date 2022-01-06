@@ -87,9 +87,9 @@ public class ImageTest {
         int[][] tab_null = new int[10][10];
         expResult.setPixels(tab);
         
-        assertTrue(expResult.getPixels().equals(tab));
-        assertFalse(expResult.getPixels().equals(tab_test));
-        assertFalse(expResult.getPixels().equals(tab_null));
+        assertTrue(Arrays.equals(expResult.getPixels(), tab));
+        assertFalse(Arrays.equals(expResult.getPixels(), tab_test));
+        assertFalse(Arrays.equals(expResult.getPixels(), tab_null));
 
     }
 

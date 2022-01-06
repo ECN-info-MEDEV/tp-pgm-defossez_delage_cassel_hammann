@@ -222,14 +222,25 @@ public class Image {
         largeur = nLargeur;
     }
     
-    public boolean equals(Image im){
-        boolean test = ((this.hauteur == im.getHauteur()) 
-                && (this.largeur == im.getLargeur())
-                && (this.echelle == im.getEchelle()));
-        if (test) {
-            int[][] tab = im.getPixels();
-            for (int i=0; i<this.largeur; ++i) test &= Arrays.equals(this.pixels[i], tab[i]);
+    /**
+     * Check if two images are equals
+     * @param o
+     * @return true if equal
+     */
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Image im) {
+            boolean test = ((this.hauteur == im.getHauteur()) 
+                    && (this.largeur == im.getLargeur())
+                    && (this.echelle == im.getEchelle()));
+            if (test) {
+                int[][] tab = im.getPixels();
+                for (int i=0; i<this.largeur; ++i) test &= Arrays.equals(this.pixels[i], tab[i]);
+            }
+            return test;
+        } else {
+            return false;
         }
-        return test;
     }
+
 }

@@ -8,6 +8,8 @@ package org.centrale.medev_tp3;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -37,7 +39,8 @@ public class ImageTest {
     @Ignore
     @Test
     public void testGetLargeur() {
-        System.out.println("getLargeur");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "getLargeur");
         Image instance = new Image(50,50,180);
         assertTrue(instance.getLargeur() == 50);
         assertFalse(instance.getLargeur() < 50);
@@ -51,7 +54,8 @@ public class ImageTest {
     @Ignore
     @Test
     public void testGetEchelle() {
-        System.out.println("getEchelle");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "getEchelle");
         Image instance = new Image(50,50,180);
         assertTrue(instance.getEchelle() == 180);
         assertFalse(instance.getEchelle() < 180);
@@ -65,7 +69,8 @@ public class ImageTest {
      */
     @Test
     public void testGetPixels() throws FileNotFoundException {
-        System.out.println("getPixels");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "getPixels");
         ChargementImage instance = new ChargementImage("../test.pgm");
         Image expResult = new Image(10,10,255);
         // Deux cas
@@ -100,7 +105,8 @@ public class ImageTest {
     @Ignore
     @Test
     public void testGetHauteur() {
-        System.out.println("getHauteur");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "getHauteur");
         Image instance = new Image(50,50,180);
         assertTrue(instance.getHauteur() == 50);
         assertFalse(instance.getHauteur() < 50);
@@ -114,7 +120,8 @@ public class ImageTest {
      */
     @Test
     public void testSetPixels() {
-        System.out.println("setPixels");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "setPixels");
         // Generating a array of pixel and changing it + testing if it is the one we expected
 
     }
@@ -124,7 +131,8 @@ public class ImageTest {
      */
     @Test
     public void testLoadSize() {
-        System.out.println("loadSize");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "loadSize");
         Image instance = new Image();
         String ligne_valide = "120  120";
         instance.loadSize(ligne_valide);
@@ -136,8 +144,8 @@ public class ImageTest {
      */
     @Test
     public void testLoadEchelle() {
-        System.out.println("loadEchelle");
-
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "loadEchelle");
     }
 
     /**
@@ -146,7 +154,8 @@ public class ImageTest {
     @Ignore
     @Test
     public void testGetPixel() {
-        System.out.println("getPixel");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "getPixel");
 
     }
 
@@ -155,7 +164,8 @@ public class ImageTest {
      */
     @Test
     public void testSetPixel() {
-        System.out.println("setPixel");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "setPixel");
 
     }
 
@@ -164,7 +174,8 @@ public class ImageTest {
      */
     @Test
     public void testDuplicate() {
-        System.out.println("duplicate");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "duplicate");
 
     }
 
@@ -173,8 +184,8 @@ public class ImageTest {
      */
     @Test
     public void testSeuillage() {
-        System.out.println("seuillage");
-
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "seuillage");
         
     }
 
@@ -184,7 +195,8 @@ public class ImageTest {
      */
     @Test
     public void testMemeFormat() throws FileNotFoundException, IOException {
-        System.out.println("memeFormat");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "memeFormat");
         Image expResult = new Image(10,10,255);
         // Deux cas
         int[][] tab = new int[10][10];
@@ -206,7 +218,8 @@ public class ImageTest {
 
     @Test
     public void testDifference() throws Exception {
-        System.out.println("difference");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "difference");
         ChargementImage instance = new ChargementImage("../test.pgm");
         ChargementImage instance_test = new ChargementImage("../baboon.pgm");
         Image result = instance.chargerImage();
@@ -219,8 +232,8 @@ public class ImageTest {
      */
     @Test
     public void testChangerTaille() {
-        System.out.println("changerTaille");
-
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "changerTaille");
     }
     
 }

@@ -5,6 +5,8 @@
  */
 package org.centrale.medev_tp3;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -34,7 +36,8 @@ public class EcritureImageTest {
     @Ignore
     @Test
     public void testEcrireImage() throws Exception {
-        System.out.println("ecrireImage");
+        Logger logger = Logger.getLogger("logger"); 
+        logger.log(Level.INFO, "ecrireImage");
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
         // EN attente d'alexis
